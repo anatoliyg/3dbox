@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import THREE from 'three';
-import ExampleBase from './ExampleBase';
+import ExampleBase from './../ExampleBase';
 
 import React3 from 'react-three-renderer';
 
@@ -10,8 +10,7 @@ import Info from './Info';
 
 import PointCloud from './PointCloud';
 
-import TrackballControls from './trackball';
-import styles from './App.css';
+import TrackballControls from '../../ref/trackball';
 
 const perspectiveCameraName = 'perspectiveCamera';
 const orthographicCameraName = 'orthographicCamera';
@@ -246,71 +245,4 @@ class WebGLCameraExample extends ExampleBase {
   }
 }
 
-
-ReactDOM.render(<WebGLCameraExample width={window.screen.width} height={window.screen.height}/>, document.getElementById('root'));
-
 export default WebGLCameraExample;
-
-
-// import React from 'react';
-// import React3 from 'react-three-renderer';
-// import THREE from 'three';
-// import ReactDOM from 'react-dom';
-
-// class Simple extends React.Component {
-// 	constructor(props, context) {
-// 		super(props, context);
-
-// 		// construct the position vector here, because if we use 'new' within render,
-// 		// React will think that things have changed when they have not.
-// 		this.cameraPosition = new THREE.Vector3(0, 0, 5);
-
-// 		this.state = {
-// 			cubeRotation: new THREE.Euler()
-// 		};
-
-// 	}
-
-//   	_onAnimate = () => {
-//       // we will get this callback every frame
-
-//       // pretend cubeRotation is immutable.
-//       // this helps with updates and pure rendering.
-//       // React will be sure that the rotation has now updated.
-// 		this.setState({
-// 			cubeRotation: new THREE.Euler(this.state.cubeRotation.x + 0.01, this.state.cubeRotation.y + 0.01, 0)
-// 		});
-//     };
-
-//   	render() {
-// 		const width = window.innerWidth; // canvas width
-// 	    const height = window.innerHeight; // canvas height
-
-// 	    return (
-// 			<React3
-// 				mainCamera="camera" // this points to the perspectiveCamera which has the name set to "camera" below
-// 				width={width}
-// 				height={height}
-// 				onAnimate={this._onAnimate}>
-// 	      	<scene>
-// 	        	<perspectiveCamera
-// 					name="camera"
-// 					fov={75}
-// 					aspect={width / height}
-// 					near={0.1}
-// 					far={1000}
-// 	          		position={this.cameraPosition}/>
-// 					<mesh rotation={this.state.cubeRotation} >
-// 						<boxGeometry
-// 							width={1}
-// 							height={1}
-// 							depth={1} 
-// 							/>
-// 						<meshBasicMaterial color={0x00ff00} />
-// 					</mesh>
-// 	      	</scene>
-// 	    </React3>);
-// 	}
-// }
-
-// ReactDOM.render(<Simple/>, document.getElementById('root'));
